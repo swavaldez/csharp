@@ -9,16 +9,15 @@ using System.Threading.Tasks;
 
 namespace LinkedList
 {
-    public class LinkedList<T> 
+    public class LinkedList<T> : IEnumerable<T>
     {
         public Node<T> Head { get; set; }
-        public Node<T> Tail { get; set; }
         public int Count { get; set; }
 
         public LinkedList()
         {
             Head = new Node<T>();
-            Tail = new Node<T>();
+           
         }
 
         public void AddStart(T data)
@@ -40,6 +39,7 @@ namespace LinkedList
         public void AddEnd(T data)
         {
             var newNode = new Node<T> { Value = data, Next = null};
+            var current = Head;
 
             if (Head == null)
             {
@@ -47,34 +47,29 @@ namespace LinkedList
             }
             else
             {
-                var current = Head;
-                
                 while (current.Next != null)
                 {
                     current = current.Next;
-         
                 }
 
                 current.Next = newNode;
-
             }
         }
 
-        public void PrintNodes()
+
+        public IEnumerator<T> GetEnumerator()
         {
-            var current = Head;
-            while (current.Next != null)
+            Node<T> current = Head;
+            while (current != null)
             {
-                Console.WriteLine("Node : {0}", current.Value);
+                yield return current.Value;
                 current = current.Next;
-                
-
             }
         }
 
-        
-
-
-       
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
     }
 }
