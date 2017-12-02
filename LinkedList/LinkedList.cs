@@ -16,8 +16,7 @@ namespace LinkedList
 
         public LinkedList()
         {
-            Head = new Node<T>();
-           
+                      
         }
 
         public void AddStart(T data)
@@ -40,7 +39,6 @@ namespace LinkedList
         {
             var newNode = new Node<T> { Value = data, Next = null};
             var current = Head;
-
             if (Head == null)
             {
                 Head = newNode;
@@ -48,11 +46,10 @@ namespace LinkedList
             else
             {
                 while (current.Next != null)
-                {
+                {                    
                     current = current.Next;
                 }
-
-                current.Next = newNode;
+                current.Next = newNode;                
             }
         }
 
