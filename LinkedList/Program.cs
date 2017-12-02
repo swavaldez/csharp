@@ -12,12 +12,12 @@ namespace LinkedList
         {
             LinkedList<int>  ints = new LinkedList<int>();
             
-            ints.AddStart(5);
-            ints.AddStart(7);
-            ints.AddStart(9);
-            ints.AddEnd(13);
-            ints.AddEnd(14);
-            ints.AddEnd(13);
+            ints.AddFirst(5);
+            ints.AddFirst(7);
+            ints.AddFirst(9);
+            ints.AddLast(13);
+            ints.AddLast(14);
+            ints.AddLast(13);
 
 
             foreach (var item in ints)

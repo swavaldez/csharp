@@ -12,32 +12,61 @@ namespace LinkedList
     public class LinkedList<T> : IEnumerable<T>
     {
         public Node<T> Head { get; set; }
-        public int Count { get; set; }
+        public int Count { get; private set; }
 
         public LinkedList()
         {
-                      
+
         }
 
-        public void AddStart(T data)
+        public T First
+        {
+            get
+            {
+                if (Head == null)
+                    return default(T);
+
+                return Head.Value;
+            }
+        }
+
+        public T Last
+        {
+            get
+            {
+                if (Head == null)
+                    return default(T);
+
+                var current = Head;
+                while (current.Next != null)
+                {
+                    current = current.Next;
+                }
+
+                return current.Value;
+            }
+        }
+
+
+        public void AddFirst(T data)
         {
             if (Head == null)
             {
-                Head = new Node<T> {Value = data};
+                Head = new Node<T> { Value = data };
 
             }
             else
             {
-                var newNode = new Node<T> {Value = data, Next = Head};
+                var newNode = new Node<T> { Value = data, Next = Head };
                 Head = newNode;
             }
 
             Count++;
         }
 
-        public void AddEnd(T data)
+        public void AddLast(T data)
         {
-            var newNode = new Node<T> { Value = data, Next = null};
+            var newNode = new Node<T> { Value = data, Next = null };
             var current = Head;
             if (Head == null)
             {
@@ -46,11 +75,54 @@ namespace LinkedList
             else
             {
                 while (current.Next != null)
-                {                    
+                {
                     current = current.Next;
                 }
-                current.Next = newNode;                
+                current.Next = newNode;
             }
+
+            Count++;
+        }
+
+        public void RemoveFirst()
+        {
+            if (Count == 1)
+            {
+                Head = null;
+            }
+            else
+            {
+                Head = Head.Next;
+            }
+
+            Count--;
+        }
+
+        public void RemoveLast()
+        {
+            if (Count == 1)
+            {
+                Head = null;
+            }
+            else
+            {
+                var current = Head;
+                int removeCount = 1;
+                while (current.Next != null)
+                {                  
+                    current = current.Next;
+                    removeCount++;
+
+                    if(removeCount == Count - 1)
+                    {
+                        current.Next = null;
+                        Count--;
+                        break;
+                    }
+                }
+                
+            }
+
         }
 
 
@@ -68,5 +140,7 @@ namespace LinkedList
         {
             return GetEnumerator();
         }
+
+     
     }
 }
