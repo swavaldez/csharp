@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2010
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedList", "LinkedList\LinkedList.csproj", "{F778F595-F6E9-4388-9F77-A6B1F6E2EF3E}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BubbleSort", "BubbleSort\BubbleSort.csproj", "{91C22D48-EAF0-4F5F-A9AA-AB185451B188}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsertionSort", "InsertionSort\InsertionSort.csproj", "{7B574F2F-DDF5-49D9-AF96-49C39B236BE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackLinkedList", "StackLinkedList\StackLinkedList.csproj", "{35C47CAA-78FC-4747-B2CB-222251D26E22}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{7B574F2F-DDF5-49D9-AF96-49C39B236BE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B574F2F-DDF5-49D9-AF96-49C39B236BE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B574F2F-DDF5-49D9-AF96-49C39B236BE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35C47CAA-78FC-4747-B2CB-222251D26E22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35C47CAA-78FC-4747-B2CB-222251D26E22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35C47CAA-78FC-4747-B2CB-222251D26E22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35C47CAA-78FC-4747-B2CB-222251D26E22}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
