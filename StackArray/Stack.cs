@@ -38,26 +38,19 @@ namespace StackArray
         {
             if (_size == 0) throw new InvalidOperationException("Stack is empty.");
           
-            T[] newArr = new T[_arr.Length];
-            var popValue = _arr[0];
-
-            for (int i = 1; i < _arr.Length; i++)
-            {
-                newArr[i - 1] = _arr[i];
-            }
-            
+          
+            var popValue = _arr[_size - 1];
+            _arr[_size - 1] = default(T);
             _size--;
-            _arr = newArr;
-
             return popValue;
 
         }
 
-        public T Seek()
+        public T Peek()
         {
             if (_size == 0) throw new InvalidOperationException("Stack is empty.");
 
-            return _arr[0];
+            return _arr[_size - 1];
         }
 
         public IEnumerator<T> GetEnumerator()
