@@ -21,81 +21,12 @@ namespace StackLinkedList
     /// <typeparam name="T"></typeparam>
     public class Stack<T> : IEnumerable<T>
     {
-        class Node<T>
-        {
-            public T Value { get; set; } 
-            public Node<T> Next { get; set; }
-        }
-
-        class LinkedList<T>
-        {
-            public Node<T> Head { get; set; }
-            public int Count { get; set; }
-            public void AddFirst(T data)
-            {
-                if (Head == null)
-                {
-                    Head = new Node<T> { Value = data };
-
-                }
-                else
-                {
-                    var newNode = new Node<T> { Value = data, Next = Head };
-                    Head = newNode;
-                }
-
-                Count++;
-            }
-
-            public void RemoveFirst()
-            {
-                if (Count == 1)
-                {
-                    Head = null;
-                }
-                else
-                {
-                    Head = Head.Next;
-                }
-
-                Count--;
-            }
-
-            public T Last
-            {
-                get
-                {
-                    if (Head == null)
-                        return default(T);
-
-                    var current = Head;
-                    while (current.Next != null)
-                    {
-                        current = current.Next;
-                    }
-
-                    return current.Value;
-                }
-            }
-
-            public T First
-            {
-                get
-                {
-                    if (Head == null)
-                        return default(T);
-
-                    return Head.Value;
-                }
-            }
-        }
 
         private readonly LinkedList<T> _linkedList = new LinkedList<T>();
 
         public void Push(T data)
         {
-           
-           _linkedList.AddFirst(data);
+           _linkedList.AddLast(data);
            
         }
 
@@ -103,8 +34,8 @@ namespace StackLinkedList
         {
             if(_linkedList.Count == 0) throw new InvalidOperationException("The stack is empty.");
 
-            var popValue = _linkedList.First;
-            _linkedList.RemoveFirst();
+            var popValue = _linkedList.Last.Value;
+            _linkedList.RemoveLast();
 
             return popValue;
 
@@ -113,17 +44,12 @@ namespace StackLinkedList
         public T Peek()
         {
             if (_linkedList.Count == 0) throw new InvalidOperationException("The stack is empty.");
-            return _linkedList.First;
+            return _linkedList.Last.Value;
         }
 
         public IEnumerator<T> GetEnumerator()
         {
-            Node<T> current = _linkedList.Head;
-            while (current != null)
-            {
-                yield return current.Value;
-                current = current.Next;
-            }
+            return _linkedList.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
